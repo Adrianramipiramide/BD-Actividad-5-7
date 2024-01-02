@@ -1,0 +1,85 @@
+CREATE TABLE Gimnasio{
+
+nombre (50) varchar NOT NULL;
+
+}	
+
+CREATE TABLE Entrenador{
+
+nombre (50) varchar NOT NULL;
+
+apellido (50) varchar;
+
+DNI (9) varchar NORTNULL;
+
+Nombre_gimnasio (50) varcahar;
+
+CONSTRAINT pk_DNI PRIMARY KEY;
+
+CONSTRAINT FK_Nombre_gimnasio FOREIGN KEY (gimanasio_Nombre) REFERENCE gimnasio(Nombre);
+}		
+
+CREATE TABLE Planificación{
+
+Fecha (12) date;
+
+Codigo (10) int NOT NULL;
+
+CONSTRAINT pk_codigo PRIMARY KEY;
+}	
+
+CREATE TABLE Cliente{
+
+nombre (50) varchar NOT NULL;
+
+apellido (50) varchar;
+
+fecha (9) date;
+
+DNI (9) varchar NOT NULL;
+
+CONSTRAINT pk_DNI PRIMARY KEY;
+}	
+
+CREATE TABLE Matreial{
+
+Nombre (50) varchar NOT NULL;
+
+CONSTRAINT pk_Material PRIMARY KEY;
+
+}	
+
+CREATE TABLE Entrenamiento{
+
+fecha (10) date;
+
+codigo (9) int;
+
+CONSTRAINt fk_codigo_planificacion FOREIGN KEY (codigo_planificacion) REFERENCE planificacion(codigo)
+}
+
+CREATE TABLE Ejercicio{
+
+numero de series (2) int;
+
+nombre (20) varchar;
+
+CONSTRAINT pk_nombre PRIMARY KEY;
+
+CONSTRAINT fk_nombre_material FOREIGN KEY nombre_material REFERENCE material(nombre)
+
+CONSTRAINT fk_codigo_entrenamiento FOREIGN KEY codigo_entrenamiento REFERENCE entrenamiento(codigo)
+}
+
+CREATE TABLE Entrenador_Planificacion_Cliente{
+
+CONSTRAINT fk_codigo_planificacion FOREIGN KEY codigo_planificacion REFERENCE planificacion(codigo)
+
+CONSTRAINT fk_DNI_entrenador FOREIGN KEY DNI_entrenador REFERENCE entrenador(DNI)
+
+CONSTRAINT fk_DNI_Cliente FOREIGN KEY DNI_Cliente REFERENCE Cliente(DNI)
+}	
+
+
+
+
